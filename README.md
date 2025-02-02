@@ -27,7 +27,7 @@ go mod init github.com/bianavic/fullcycle_graphql
  go mod tidy
 ```
 
-## Inicia gqlgen config e gera models
+## Inicia gqlgen config e gera esquelto do projeto
 
 ```bash
 go run github.com/99designs/gqlgen init
@@ -45,3 +45,10 @@ go run server.go
 http://localhost:8080/
 ```
 
+OBS:
+- Criar arquivo schema.graphqls
+- Rodar comando go run github.com/99designs/gqlgen generate
+- Executa resolver para implementar os metodos
+- Rodar comando go run server.go
+- Acessar http://localhost:8080/ para testar
+OBS: O playground irá apresentar `Mutation` e `Query`

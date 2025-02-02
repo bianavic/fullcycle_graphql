@@ -1,7 +1,7 @@
 # This file contains data entries for the GraphQL schema
 
 # Model: Category has many Courses
-type category {
+type Category {
   id: ID!
   name: String!
   description: String
