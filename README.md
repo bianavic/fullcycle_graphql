@@ -1,7 +1,13 @@
 # fullcycle_graphql
 
-Criacao estrutura graphql com gqlgen
-obs: https://gqlgen.com/
+---
+
+## expondo aplicacao com graphql
+site: https://gqlgen.com/
+
+---
+
+Estrutura graphql criada com gqlgen
 
 ## Inicia
 
@@ -9,7 +15,7 @@ obs: https://gqlgen.com/
 go mod init github.com/bianavic/fullcycle_graphql 
 ```
 
-## Instalação Tools
+## Instala Tools
 
 ```bash
  printf '//go:build tools\npackage tools\nimport (_ "github.com/99designs/gqlgen"\n _ "github.com/99designs/gqlgen/graphql/introspection")' | gofmt > tools.go
@@ -21,7 +27,7 @@ go mod init github.com/bianavic/fullcycle_graphql
  go mod tidy
 ```
 
-## Inicializa gqlgen config e gera models
+## Inicia gqlgen config e gera models
 
 ```bash
 go run github.com/99designs/gqlgen init
