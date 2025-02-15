@@ -11,7 +11,7 @@ type Category {
 # Model: Course belongs to a Category
 type Course {
   id: ID!
-  name: String!
+  name : String!
   description: String
   category: Category!
 }
@@ -21,7 +21,6 @@ type Course {
 input NewCategory {
   name: String!
   description: String
-  categoryId: ID!
 }
 
 # Input: Data entries - Infos to generate a new course
@@ -39,5 +38,5 @@ type Query {
 
 type Mutation {
   createCategory(input: NewCategory!): Category!
-    createCourse(input: NewCourse!): Course!
+  createCourse(input: NewCourse!): Course!
 }
