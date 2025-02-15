@@ -20,8 +20,8 @@ func NewCourse(db *sql.DB) *Course {
 
 func (c *Course) Create(name, description, categoryID string) (*Course, error) {
 	id := uuid.New().String()
-	_, err := c.db.Exec("INSERT INTO courses (id, name, description, category_id) VALUES ($1, $2, $3, $4)",
-		id, name, description, categoryID)
+	query := "INSERT INTO courses (id, name, description, category_id) VALUES ($1, $2, $3, $4)"
+	_, err := c.db.Exec(query, id, name, description, categoryID)
 	if err != nil {
 		return nil, err
 	}
@@ -34,7 +34,8 @@ func (c *Course) Create(name, description, categoryID string) (*Course, error) {
 }
 
 func (c *Course) FindAll() ([]Course, error) {
-	rows, err := c.db.Query("SELECT id, name, description, category_id FROM courses")
+	query := "SELECT id, name, description, category_id FROM courses"
+	rows, err := c.db.Query(query)
 	if err != nil {
 		return nil, err
 	}
@@ -51,9 +52,10 @@ func (c *Course) FindAll() ([]Course, error) {
 }
 
 func (c *Course) FindByCategoryID(categoryID string) ([]Course, error) {
-	rows, err := c.db.Query("SELECT id, name, description, category_id FROM courses WHERE category_id = $1", categoryID)
+	query := "SELECT id, name, description, category_id FROM courses WHERE category_id = $1"
+	rows, err := c.db.Query(query, categoryID)
 	if err != nil {
-		return nil, err
+		return []Course{}, err
 	}
 	defer rows.Close()
 	courses := []Course{}
