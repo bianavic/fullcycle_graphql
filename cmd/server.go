@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"github.com/bianavic/fullcycle_graphql/graph/generated"
 	"log"
 	"net/http"
 	"os"
@@ -31,7 +30,7 @@ func main() {
 		port = defaultPort
 	}
 
-	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{
+	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{
 		CategoryDB: categoryDb,
 		CourseDB:   courseDb,
 	}}))

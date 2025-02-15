@@ -33,6 +33,10 @@ go mod init github.com/bianavic/fullcycle_graphql
 go run github.com/99designs/gqlgen init
 ```
 
+```bash
+go run github.com/99designs/gqlgen generate
+```
+
 ## Inicia server
 
 ```bash
